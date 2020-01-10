@@ -46,16 +46,33 @@ self.addEventListener('activate', e => {
   )
 })
 
-self.addEventListener('fetch', e => {
-  console.log("fetching");
-  e.respondWith(
-    caches.match(e.request)
-      .then(response => {
-        if (response) {
-          return response;
-        }
-        return fetch(e.request);
-      })
-  )
-})
+// self.addEventListener('fetch', e => {
+//   console.log("fetching");
+//   e.respondWith(
+//     caches.match(e.request)
+//       .then(response => {
+//         if (response) {
+//           return response;
+//         }
+//         return fetch(e.request);
+//       })
+//   )
+// })
 
+
+self.addEventListener('fetch',e=>{
+  console.log("Fetching");{
+    e.respondWith(
+      fetch(e.request)
+      .then(res=>{
+        const resClone=res.clone();
+        caches.open('v1')
+        .then(cache=>{
+          cache.put(e.request,resClone);
+        })
+        return res;
+      })
+     .catch(err=>caches.match(e.request).then(res=>res))
+    )
+  }
+})
