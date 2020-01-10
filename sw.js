@@ -23,6 +23,7 @@ self.addEventListener('install', e => {
           'register.js',
           'restaurant.html',
           'sw.js',
+          'manifest.json',
         ])
           .then(() => {
             return self.skipWaiting();
