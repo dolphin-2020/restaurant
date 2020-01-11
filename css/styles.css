@@ -131,11 +131,13 @@ nav h1 a {
 
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
+  display:inline;
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
   padding: 30px 15px 60px;
   text-align: center;
+
 }
 #restaurants-list li {
   background-color: #fff;
@@ -145,7 +147,8 @@ nav h1 a {
   min-height: 380px;
   padding: 0 30px 25px;
   text-align: left;
-  width: 270px;
+  max-width: 90%;
+  margin:auto;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
@@ -272,4 +275,26 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+/*-----------------------------------------*/
+@media only screen and (min-width: 530px){
+  #restaurants-list {
+    display:flex;
+    justify-content: space-around;
+    flex-wrap:wrap;
+  }
+  #restaurants-list li {
+    max-width: 80%;
+  }
+}
+
+@media only screen and (min-width: 739px){
+  #restaurants-list {
+    display:flex;
+    justify-content: space-around;
+    flex-wrap:wrap;
+  }
+  #restaurants-list li {
+    max-width: 270px;
+  }
 }

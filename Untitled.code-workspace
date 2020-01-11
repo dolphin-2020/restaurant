@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "/Users/macbookair/Downloads/app-images/images/icons"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "dolphin"
+	}
+}
